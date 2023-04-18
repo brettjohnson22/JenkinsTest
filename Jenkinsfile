@@ -30,7 +30,7 @@ pipeline {
             env.PATH = "${dockerTool}/bin:${env.PATH}"
         }
 
-        sh 'docker --version'
+        sh 'docker logs docker'
         sh 'echo "Host: $DOCKER_HOST"'
 
         withCredentials([usernamePassword(credentialsId: 'personal-docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
