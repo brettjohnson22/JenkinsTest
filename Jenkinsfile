@@ -34,8 +34,7 @@ pipeline {
         sh 'echo "Host: $DOCKER_HOST"'
 
         withCredentials([usernamePassword(credentialsId: 'personal-docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-    // Use the USERNAME and PASSWORD environment variables are available within this block  
-            sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+            sh 'docker login --host https://index.docker.io/v1/ -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
         }
         
         sh 'echo "Username: $DOCKER_USERNAME"'
