@@ -35,6 +35,7 @@ pipeline {
             sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
         }
         sh 'docker --version'
+        sh 'echo "Username: $DOCKER_USERNAME"'
       }
     }
 
