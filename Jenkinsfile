@@ -34,10 +34,10 @@ pipeline {
         sh 'echo "Host: $DOCKER_HOST"'
 
         withCredentials([usernamePassword(credentialsId: 'personal-docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-            sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+            sh 'echo "Username: $DOCKER_USERNAME"'
         }
         
-        sh 'echo "Username: $DOCKER_USERNAME"'
+        
       }
     }
 
